@@ -1,0 +1,29 @@
+{
+  "name": "Hide CBS pickem percentages",
+  "description": "Hides the percent picked on cbs nfl picks. Hides by default, click the percent icon and click show % to show them",
+  "manifest_version": 2,
+  "version": "1.0",
+  "permissions": [
+    "http://*.football.cbssports.com/*/make-picks",
+    "https://*.football.cbssports.com/*/make-picks"
+  ],
+  "page_action": {
+    "default_title": "Hide CBS pickem percentages",
+    "default_icon": "percent.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+      "scripts": ["background.js"]
+    },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.football.cbssports.com/*/make-picks", 
+        "https://*.football.cbssports.com/*/make-picks"
+      ],
+      "js": ["hide.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
